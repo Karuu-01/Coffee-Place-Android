@@ -1,9 +1,9 @@
 ## App-Name
-Coffee Place Location
+- Coffee Place Location
 
 ## Project Description
-An app that tracks the current location of a user and tells the user of the current Coffee shops that are around the user.
-Click on [Karuu](https://github.com/Karuu-01) to find the link to my Github Site.
+- An app that tracks the current location of a user and tells the user of the current Coffee shops that are around the user.
+- Click on [Karuu](https://github.com/Karuu-01) to find the link to my Github Site.
 ![picture](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80)
 
 ## Author
