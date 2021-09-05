@@ -13,7 +13,7 @@
 
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/tembeaKenyaTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tembea Kenya!"
@@ -23,6 +23,17 @@
         android:textColor="@color/colorTextIcons"
         android:textSize="20sp"
         android:fontFamily="monospace" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/galleryEditView"
+        android:layout_above="@+id/FindPlacesButton"
+        android:background="@color/colorTextIcons"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        android:hint="Enter Place To Visit"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"

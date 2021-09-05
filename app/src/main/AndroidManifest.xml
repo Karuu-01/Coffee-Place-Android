@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeePlace">
         <activity
-            android:name=".PlacesActivity"
+            android:name=".GalleryActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
