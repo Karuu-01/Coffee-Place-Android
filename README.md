@@ -1,8 +1,8 @@
 ## App-Name
-- Coffee Place Location
+- Tembea Kenya
 
 ## Project Description
-- An app that tracks the current location of a user and tells the user of the current Coffee shops that are around the user.
+- An app that gives users ideas of places they'd wish to travel and rates of the location.
 - Click on [Karuu](https://github.com/Karuu-01) to find the link to my Github Site.
 ![picture](https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80)
 
@@ -13,7 +13,7 @@ Brian Karu
 ## To set up this project:
 - Have Android Studio installed in your desktop
 - Go to Github 
-- Clone the repository by executing the following command in your terminal in the directory of your choice - git clone https://github.com/Karuu-01/Coffee-Place-Android.git
+- Clone the repository by executing the following command in your terminal in the directory of your choice - git clone https://github.com/Karuu-01/Tembea-Kenya-Android
 - Navigate into the Coffee-Place-Android directory - cd Coffee-Place-Android
 - Build project
 - Build
