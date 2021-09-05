@@ -25,11 +25,11 @@
         android:fontFamily="monospace" />
 
     <Button
-        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:id="@+id/FindPlacesButton"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
         android:textStyle="bold"
