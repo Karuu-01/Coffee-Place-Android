@@ -14,7 +14,7 @@ Brian Karu
 - Have Android Studio installed in your desktop
 - Go to Github 
 - Clone the repository by executing the following command in your terminal in the directory of your choice - git clone https://github.com/Karuu-01/Tembea-Kenya-Android
-- Navigate into the Coffee-Place-Android directory - cd Coffee-Place-Android
+- Navigate into the Tembea-Kenya-Android directory - cd Tembea-Kenya-Android
 - Build project
 - Build
 - Run gradle build to build the project.
