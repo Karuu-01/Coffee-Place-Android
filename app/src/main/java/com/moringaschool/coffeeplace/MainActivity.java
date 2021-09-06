@@ -10,21 +10,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = MainActivity.class.getSimpleName();
-    private Button mFindPlacesButton;
-    private EditText mGalleryEditText;
+    @BindView(R.id.FindPlacesButton) Button mFindPlacesButton;
+    @BindView(R.id.galleryEditText) EditText mGalleryEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mGalleryEditText = (EditText) findViewById(R.id.galleryEditText);
-        mFindPlacesButton = (Button) findViewById(R.id.FindPlacesButton);
+        ButterKnife.bind(this);
 
-        mFindPlacesButton.setOnClickListener(new View.OnClickListener() {
+        mFindPlacesButton.setOnClickListener(this);
+    }
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+        if(v == mFindPlacesButton) {
                 //added a toast
                 Toast.makeText(MainActivity.this, "Travel Is My Therapy", Toast.LENGTH_LONG).show();
                 //added a editText to take input from the button
@@ -32,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
                 intent.putExtra("gallery", gallery);
                 startActivity(intent);
-                
-            }
-        });
+        }
     }
 }
