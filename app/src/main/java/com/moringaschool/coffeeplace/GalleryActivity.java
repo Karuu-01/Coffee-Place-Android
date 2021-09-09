@@ -16,19 +16,20 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class GalleryActivity extends AppCompatActivity {
-    private TextView mGalleryTextView;
-    private ListView mListView;
-    private String[] location = new String[] {"Europe", "Africa", "North America", "Asia", "South America", "Australia", "New Zealand", "Kenya", "Porto"};
-    private String[] places = new String[] {"Bamburi beach", "Voyager", "Sneak pik", "Burudani place", "Alps", "Mt.Everest recreation place", "Kangaroo Villa", "Panda house"};
+    @BindView(R.id.galleryTextView) TextView mGalleryTextView;
+    @BindView(R.id.listView) ListView mListView;
+    private String[] location = new String[] {"Turkey","Sweden", "France", "Portugal", "Germany", "USA", "Canada", "Spain", "China", "Italy", "Belgium", "Finland", "Lithuania", "Scotland", "Croatia" };
+    private String[] places = new String[] {"Bamburi beach", "Villa Total", "Voyager", "Sneak pik", "Burudani place", "Alps", "Mt.Everest recreation place", "Kangaroo Villa", "Panda house", "Portugal villa", "Aladdin Castle", "Bahamas", "Yolo hotel", "Frenzy villa" ,"Puerto rico mansion"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-
-        mGalleryTextView = (TextView) findViewById(R.id.galleryTextView);
-        mListView = (ListView) findViewById(R.id.listView);
+        ButterKnife.bind(this);
 
         GalleryArrayAdapter adapter = new GalleryArrayAdapter(this, android.R.layout.simple_list_item_1, location, places);
         mListView.setAdapter(adapter);
@@ -36,8 +37,9 @@ public class GalleryActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l){
-            String places = ((TextView)view).getText().toString();
-            Toast.makeText(GalleryActivity.this, places, Toast.LENGTH_LONG).show();;
+            String location = ((TextView)view).getText().toString();
+            Log.v("Gallery Activity", "In the onItemClickListener");
+            Toast.makeText(GalleryActivity.this, location, Toast.LENGTH_LONG).show();;
         }});
 
         Intent intent = getIntent();

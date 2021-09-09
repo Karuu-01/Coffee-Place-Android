@@ -26,15 +26,16 @@
         android:fontFamily="monospace" />
 
     <EditText
+        android:id="@+id/galleryEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/galleryEditText"
         android:layout_above="@+id/FindPlacesButton"
-        android:background="@color/colorTextIcons"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:padding="5dp"
+        android:background="@color/colorTextIcons"
         android:hint="Enter Place To Visit"
-        android:layout_centerHorizontal="true" />
+        android:minHeight="48dp"
+        android:padding="5dp" />
 
     <Button
         android:layout_width="match_parent"

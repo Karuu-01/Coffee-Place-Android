@@ -8,15 +8,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    public static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.FindPlacesButton) Button mFindPlacesButton;
     @BindView(R.id.galleryEditText) EditText mGalleryEditText;
+    @BindView(R.id.tembeaKenyaTextView) TextView mTembeaKenyaTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
