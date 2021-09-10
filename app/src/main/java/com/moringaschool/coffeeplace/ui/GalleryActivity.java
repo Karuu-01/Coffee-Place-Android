@@ -43,7 +43,7 @@ public class GalleryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String gallery = intent.getStringExtra("gallery");
         mGalleryTextView.setText("Here are all the places near: " + gallery);
-        Log.d("GalleryActivity", "In the Oncreate method!");
+        Log.d("GalleryActivity", "In the Oncreate method");
 
     }
 }
