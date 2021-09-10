@@ -1,20 +1,18 @@
-package com.moringaschool.coffeeplace;
+package com.moringaschool.coffeeplace.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.moringaschool.coffeeplace.adapters.GalleryArrayAdapter;
+import com.moringaschool.coffeeplace.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

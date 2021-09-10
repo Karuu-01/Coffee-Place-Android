@@ -1,4 +1,4 @@
-package com.moringaschool.coffeeplace;
+package com.moringaschool.coffeeplace.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

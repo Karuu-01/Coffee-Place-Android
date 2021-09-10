@@ -5,6 +5,9 @@ import static org.junit.Assert.assertTrue;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.moringaschool.coffeeplace.ui.GalleryActivity;
+import com.moringaschool.coffeeplace.ui.MainActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
