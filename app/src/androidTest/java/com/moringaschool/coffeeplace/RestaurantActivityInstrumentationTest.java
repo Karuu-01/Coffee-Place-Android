@@ -42,7 +42,7 @@ public class RestaurantActivityInstrumentationTest {
 
     @Test
     public void listItemClickDisplaysToastWithCorrectPlace() {
-        String place = "Voyager";
+        String place = "Bamburi Beach";
         onData(anything())
                 .inAdapterView(withId(R.id.listView))
                 .atPosition(0)

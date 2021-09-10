@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tembea Kenya</string>
+    <string name="home_title">Travel</string>
+    <string name="home_desc">Travel Is The Best Therapy</string>
 </resources>
