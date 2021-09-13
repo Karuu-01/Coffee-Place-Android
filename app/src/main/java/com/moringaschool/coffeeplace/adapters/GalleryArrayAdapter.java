@@ -10,18 +10,20 @@ public class GalleryArrayAdapter extends ArrayAdapter {
     private String[] mLocations;
     private String[] mPlaces;
 
+
     public GalleryArrayAdapter(Context mContext, int resource, String[] mLocations, String[] mPlaces) {
         super(mContext, resource);
         this.mContext = mContext;
         this.mLocations = mLocations;
         this.mPlaces = mPlaces;
+
     }
 
     @Override
     public Object getItem(int position) {
         String location = mLocations[position];
         String place = mPlaces[position];
-        return String.format("%s \nServes great: %s", location, place);
+        return String.format("%s \n It has great amenities: %s", location, place);
     }
 
     @Override
