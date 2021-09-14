@@ -3,17 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GalleryActivity"
+    tools:context=".ui.GalleryListActivity"
     android:background="@drawable/vac2">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/galleryTextView"
-        android:scrollbars="vertical" />
-
-
+        android:scrollbars="vertical"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        android:layout_alignParentRight="true" />
 
 
     <ProgressBar
@@ -27,9 +29,11 @@
         android:id="@+id/galleryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorTextIcons"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
         android:text="Restaurants near "
-        android:visibility="gone"/>
+        android:textColor="@color/colorTextIcons"
+        android:visibility="gone" />
 
     <TextView
         android:layout_width="wrap_content"
