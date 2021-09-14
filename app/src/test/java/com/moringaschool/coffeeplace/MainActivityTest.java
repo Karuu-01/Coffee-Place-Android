@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import android.content.Intent;
 import android.widget.TextView;
 
-import com.moringaschool.coffeeplace.ui.GalleryActivity;
+import com.moringaschool.coffeeplace.ui.GalleryListActivity;
 import com.moringaschool.coffeeplace.ui.MainActivity;
 
 import org.junit.Before;
@@ -36,7 +36,7 @@ public class MainActivityTest {
     @Test
     public void secondActivityStarted(){
         activity.findViewById(R.id.FindPlacesButton).performClick();
-        Intent expectedIntent = new Intent(activity, GalleryActivity.class);
+        Intent expectedIntent = new Intent(activity, GalleryListActivity.class);
         ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
         assertTrue(actualIntent.filterEquals(expectedIntent));
