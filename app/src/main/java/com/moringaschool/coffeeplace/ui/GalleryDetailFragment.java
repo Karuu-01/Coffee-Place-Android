@@ -30,7 +30,7 @@ public class GalleryDetailFragment extends Fragment {
     ImageView mImageLabel;
     @BindView(R.id.hotelNameTextView)
     TextView mNameLabel;
-    @BindView(R.id.categoryTextView) TextView mCategoriesLabel;
+    @BindView(R.id.resortTextView) TextView mCategoriesLabel;
     @BindView(R.id.ratingTextView) TextView mRatingLabel;
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;

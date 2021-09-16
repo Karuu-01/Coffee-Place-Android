@@ -26,6 +26,7 @@ public class GalleryDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_gallery_detail);
         ButterKnife.bind(this);
 
         mHotels = Parcels.unwrap(getIntent().getParcelableExtra("hotels"));
