@@ -16,10 +16,10 @@ public class Location {
     private String address1;
     @SerializedName("address2")
     @Expose
-    private Object address2;
+    private String address2;
     @SerializedName("address3")
     @Expose
-    private Object address3;
+    private String address3;
     @SerializedName("city")
     @Expose
     private String city;
@@ -54,7 +54,7 @@ public class Location {
      * @param displayAddress
      * @param state
      */
-    public Location(String address1, Object address2, Object address3, String city, String zipCode, String country, String state, List<String> displayAddress) {
+    public Location(String address1, String address2, String address3, String city, String zipCode, String country, String state, List<String> displayAddress) {
         super();
         this.address1 = address1;
         this.address2 = address2;
@@ -78,7 +78,7 @@ public class Location {
         return address2;
     }
 
-    public void setAddress2(Object address2) {
+    public void setAddress2(String address2) {
         this.address2 = address2;
     }
 
@@ -86,7 +86,7 @@ public class Location {
         return address3;
     }
 
-    public void setAddress3(Object address3) {
+    public void setAddress3(String address3) {
         this.address3 = address3;
     }
 
