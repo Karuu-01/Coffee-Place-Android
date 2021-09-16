@@ -2,24 +2,27 @@
 package com.moringaschool.coffeeplace.models;
 
 import java.util.List;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import org.parceler.Parcel;
 
-@Parcel
 public class TravelBusinessesSearchResponse {
 
-    @SerializedName("businesses")
+    @SerializedName("type")
     @Expose
-    private List<Business> businesses = null;
-    @SerializedName("total")
+    private String type;
+    @SerializedName("hotel")
     @Expose
-    private Integer total;
-    @SerializedName("region")
+    private Hotel hotel;
+    @SerializedName("available")
     @Expose
-    private Region region;
+    private Boolean available;
+    @SerializedName("offers")
+    @Expose
+    private List<Offer> offers = null;
+    @SerializedName("self")
+    @Expose
+    private String self;
 
     /**
      * No args constructor for use in serialization
@@ -30,39 +33,59 @@ public class TravelBusinessesSearchResponse {
 
     /**
      * 
-     * @param total
-     * @param region
-     * @param businesses
+     * @param offers
+     * @param available
+     * @param hotel
+     * @param self
+     * @param type
      */
-    public TravelBusinessesSearchResponse(List<Business> businesses, Integer total, Region region) {
+    public TravelBusinessesSearchResponse(String type, Hotel hotel, Boolean available, List<Offer> offers, String self) {
         super();
-        this.businesses = businesses;
-        this.total = total;
-        this.region = region;
+        this.type = type;
+        this.hotel = hotel;
+        this.available = available;
+        this.offers = offers;
+        this.self = self;
     }
 
-    public List<Business> getBusinesses() {
-        return businesses;
+    public String getType() {
+        return type;
     }
 
-    public void setBusinesses(List<Business> businesses) {
-        this.businesses = businesses;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Integer getTotal() {
-        return total;
+    public Hotel getHotel() {
+        return hotel;
     }
 
-    public void setTotal(Integer total) {
-        this.total = total;
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 
-    public Region getRegion() {
-        return region;
+    public Boolean getAvailable() {
+        return available;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
+    }
+
+    public String getSelf() {
+        return self;
+    }
+
+    public void setSelf(String self) {
+        this.self = self;
     }
 
 }
