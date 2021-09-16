@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Travel Is My Therapy", Toast.LENGTH_LONG).show();
                 //added a editText to take input from the button
                 String gallery = mGalleryEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
+                Intent intent = new Intent(MainActivity.this, GalleryListActivity.class);
                 intent.putExtra("gallery", gallery);
                 startActivity(intent);
         }
