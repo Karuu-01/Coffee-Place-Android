@@ -1,6 +1,7 @@
 package com.moringaschool.coffeeplace.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,7 +59,7 @@ public class GalleryListActivity extends AppCompatActivity {
                    hotels = response.body().getBusinesses();
                   mAdapter = new GalleryListAdapter(GalleryListActivity.this, hotels);
                   mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(GalleryListActivity.this);
+                    RecyclerView.LayoutManager layoutManager = new GridLayoutManager(GalleryListActivity.this, 2);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 

@@ -10,7 +10,7 @@
         <entry key="app/src/main/res/layout/album_card.xml" value="0.33" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_gallery_detail.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/gallery_list_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/gallery_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/gallery_listview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/home.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_album.xml" value="0.10364583333333334" />
