@@ -1,5 +1,7 @@
 package com.moringaschool.coffeeplace.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -25,11 +27,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class GalleryDetailFragment extends Fragment {
+public class GalleryDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.hotelImageView)
     ImageView mImageLabel;
     @BindView(R.id.hotelNameTextView)
     TextView mNameLabel;
+    @BindView(R.id.hotelWelcomeTextView) TextView mHotelWelcomeTextView;
     @BindView(R.id.resortTextView) TextView mCategoriesLabel;
     @BindView(R.id.ratingTextView) TextView mRatingLabel;
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
@@ -67,6 +70,11 @@ public class GalleryDetailFragment extends Fragment {
         ButterKnife.bind(this, view);
         Picasso.get().load(mHotel.getImageUrl()).into(mImageLabel);
 
+        mWebsiteLabel.setOnClickListener(this);
+        mPhoneLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
+        mImageLabel.setOnClickListener(this);
+
         List<String> categories = new ArrayList<>();
 
         for (Category category: mHotel.getCategories()) {
@@ -80,4 +88,32 @@ public class GalleryDetailFragment extends Fragment {
 
         return view;
     }
+    @Override
+    public void onClick(View v) {
+        if (v == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mHotel.getUrl()));
+            startActivity(webIntent);
+        }
+
+        if (v == mPhoneLabel) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + mHotel.getPhone()));
+            startActivity(phoneIntent);
+        }
+
+        if (v == mAddressLabel) {
+            Intent mapIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("geo:" + mHotel.getCoordinates().getLatitude() + "," + mHotel.getCoordinates().getLongitude() + "?q=(" + mHotel.getName() + ")"));
+            startActivity(mapIntent);
+        }
+
+        if (v == mImageLabel) {
+            Intent imageIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mHotel.getImageUrl()));
+            startActivity(imageIntent);
+         }
+
+    }
+
 }
