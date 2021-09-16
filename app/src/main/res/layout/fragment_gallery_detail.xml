@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Luxurious, American"
-                android:id="@+id/cuisineTextView"
+                android:id="@+id/resortTextView"
                 android:layout_below="@+id/hotelNameTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
