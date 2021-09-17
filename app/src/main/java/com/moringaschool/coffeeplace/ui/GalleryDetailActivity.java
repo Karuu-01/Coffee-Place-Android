@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import com.moringaschool.coffeeplace.R;
 import com.moringaschool.coffeeplace.adapters.GalleryPagerAdapter;
-import com.moringaschool.coffeeplace.models.Business;
+import com.moringaschool.coffeeplace.models.TravelGeoSightingResponse;
 
 import org.parceler.Parcels;
 
@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 public class GalleryDetailActivity extends AppCompatActivity {
     @BindView(R.id.viewPager) ViewPager mViewPager;
     private GalleryPagerAdapter adapterViewPager;
-    List<Business> mHotels;
+    List<TravelGeoSightingResponse> mHotels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class GalleryDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gallery_detail);
         ButterKnife.bind(this);
 
-        mHotels = Parcels.unwrap(getIntent().getParcelableExtra("hotels"));
+        mHotels = Parcels.unwrap(getIntent().getParcelableExtra("destination"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
         adapterViewPager = new GalleryPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mHotels);

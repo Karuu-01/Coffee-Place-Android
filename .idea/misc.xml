@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/font/lato_bold.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_city.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_gallery.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_gallery_detail.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_gallery_detail.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_places.xml" value="0.1" />
         <entry key="app/src/main/res/layout/album_card.xml" value="0.33" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dashboard.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_gallery_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/gallery_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/gallery_listview.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/header.xml" value="0.1" />
         <entry key="app/src/main/res/layout/home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/sightings_list_item.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.2" />
         <entry key="app/src/main/res/menu/menu_album.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.1" />

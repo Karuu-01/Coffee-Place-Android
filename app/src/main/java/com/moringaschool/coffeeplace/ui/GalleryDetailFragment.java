@@ -14,8 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.moringaschool.coffeeplace.R;
-import com.moringaschool.coffeeplace.models.Business;
-import com.moringaschool.coffeeplace.models.Category;
+import com.moringaschool.coffeeplace.models.TravelGeoSightingResponse;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -40,16 +39,16 @@ public class GalleryDetailFragment extends Fragment implements View.OnClickListe
     @BindView(R.id.addressTextView) TextView mAddressLabel;
     @BindView(R.id.saveHotelButton) TextView mSaveHotelButton;
 
-    private Business mHotel;
+    private TravelGeoSightingResponse mHotel;
 
     public GalleryDetailFragment() {
         // Required empty public constructor
     }
 
-    public static GalleryDetailFragment newInstance(Business hotel) {
+    public static GalleryDetailFragment newInstance(TravelGeoSightingResponse hotel) {
         GalleryDetailFragment galleryDetailFragment = new GalleryDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("hotels", Parcels.wrap(hotel));
+        args.putParcelable("destination", Parcels.wrap(hotel));
         galleryDetailFragment.setArguments(args);
         return galleryDetailFragment;
     }
@@ -58,7 +57,7 @@ public class GalleryDetailFragment extends Fragment implements View.OnClickListe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assert getArguments() != null;
-        mHotel = Parcels.unwrap(getArguments().getParcelable("hotels"));
+        mHotel = Parcels.unwrap(getArguments().getParcelable("destination"));
 
     }
 
@@ -68,51 +67,51 @@ public class GalleryDetailFragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_gallery_detail, container, false);
         ButterKnife.bind(this, view);
-        Picasso.get().load(mHotel.getImageUrl()).into(mImageLabel);
+//        Picasso.get().load(mHotel.getExternalUrls().toString()).into(mImageLabel);
 
         mWebsiteLabel.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
         mImageLabel.setOnClickListener(this);
 
-        List<String> categories = new ArrayList<>();
+        List<String> acceptedPay = new ArrayList<>();
 
-        for (Category category: mHotel.getCategories()) {
-            categories.add(category.getTitle());
-        }
+//        for (Medium medium: mHotel.getMedia()) {
+//            acceptedPay.add(medium.getCategory());
+//        }
         mNameLabel.setText(mHotel.getName());
-        mCategoriesLabel.setText(android.text.TextUtils.join(",", categories));
-        mRatingLabel.setText(Double.toString(mHotel.getRating()) + "/5");
-        mPhoneLabel.setText(mHotel.getPhone());
-        mAddressLabel.setText(mHotel.getLocation().toString());
+//        mCategoriesLabel.setText(android.text.TextUtils.join(",", acceptedPay));
+//        mRatingLabel.setText(Double.toString(mHotel.getStarRating()) + "/5");
+//        mPhoneLabel.setText(mHotel.getPhoneNumbers().toString());
+//        mAddressLabel.setText(mHotel.getAddress().toString());
 
         return view;
     }
     @Override
     public void onClick(View v) {
-        if (v == mWebsiteLabel) {
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(mHotel.getUrl()));
-            startActivity(webIntent);
-        }
-
-        if (v == mPhoneLabel) {
-            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
-                    Uri.parse("tel:" + mHotel.getPhone()));
-            startActivity(phoneIntent);
-        }
-
-        if (v == mAddressLabel) {
-            Intent mapIntent = new Intent(Intent.ACTION_DIAL,
-                    Uri.parse("geo:" + mHotel.getCoordinates().getLatitude() + "," + mHotel.getCoordinates().getLongitude() + "?q=(" + mHotel.getName() + ")"));
-            startActivity(mapIntent);
-        }
-
-        if (v == mImageLabel) {
-            Intent imageIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(mHotel.getImageUrl()));
-            startActivity(imageIntent);
-         }
+//        if (v == mWebsiteLabel) {
+//            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+//                    Uri.parse(mHotel.getWebsiteUrl().toString()));
+//            startActivity(webIntent);
+//        }
+//
+//        if (v == mPhoneLabel) {
+//            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+//                    Uri.parse("tel:" + mHotel.getPhoneNumbers()));
+//            startActivity(phoneIntent);
+//        }
+//
+//        if (v == mAddressLabel) {
+//            Intent mapIntent = new Intent(Intent.ACTION_DIAL,
+//                    Uri.parse("geo:" + mHotel.getLocation().getLatitude() + "," + mHotel.getLocation().getLongitude() + "?q=(" + mHotel.getName() + ")"));
+//            startActivity(mapIntent);
+//        }
+//
+//        if (v == mImageLabel) {
+//            Intent imageIntent = new Intent(Intent.ACTION_VIEW,
+//                    Uri.parse(mHotel.getImages().toString()));
+//            startActivity(imageIntent);
+//         }
 
     }
 

@@ -5,15 +5,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.moringaschool.coffeeplace.models.Business;
+
+import com.moringaschool.coffeeplace.models.TravelGeoSightingResponse;
 import com.moringaschool.coffeeplace.ui.GalleryDetailFragment;
 
 import java.util.List;
 
 public class GalleryPagerAdapter extends FragmentPagerAdapter {
-    private List<Business> mHotels;
+    private List<TravelGeoSightingResponse> mHotels;
 
-    public GalleryPagerAdapter(@NonNull FragmentManager fm, int behavior, List<Business> hotels) {
+    public GalleryPagerAdapter(@NonNull FragmentManager fm, int behavior, List<TravelGeoSightingResponse> hotels) {
         super(fm, behavior);
         mHotels = hotels;
     }

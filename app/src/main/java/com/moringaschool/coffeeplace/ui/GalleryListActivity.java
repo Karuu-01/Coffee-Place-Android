@@ -14,8 +14,7 @@ import android.widget.TextView;
 
 import com.moringaschool.coffeeplace.R;
 import com.moringaschool.coffeeplace.adapters.GalleryListAdapter;
-import com.moringaschool.coffeeplace.models.Business;
-import com.moringaschool.coffeeplace.models.TravelBusinessesSearchResponse;
+import com.moringaschool.coffeeplace.models.TravelGeoSightingResponse;
 import com.moringaschool.coffeeplace.network.TravelClientApi;
 import com.moringaschool.coffeeplace.network.TravelSearchApi;
 
@@ -29,12 +28,12 @@ import retrofit2.Response;
 
 public class GalleryListActivity extends AppCompatActivity {
     private static final String TAG = GalleryListActivity.class.getSimpleName();
-   private GalleryListAdapter mAdapter;
+    private GalleryListAdapter mAdapter;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
 
-    public List<Business> hotels;
+    public List<TravelGeoSightingResponse> hotels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +47,17 @@ public class GalleryListActivity extends AppCompatActivity {
 
         //Making the request
         TravelSearchApi client = TravelClientApi.getClient();
-        Call<TravelBusinessesSearchResponse> call = client.getHotels(gallery, "hotels");
+        Call<TravelGeoSightingResponse> call = client.getHotels(gallery);
 
-        call.enqueue(new Callback<TravelBusinessesSearchResponse>() {
+        call.enqueue(new Callback<TravelGeoSightingResponse>() {
             @Override
-            public void onResponse(Call<TravelBusinessesSearchResponse> call, Response<TravelBusinessesSearchResponse> response) {
+            public void onResponse(Call<TravelGeoSightingResponse> call, Response<TravelGeoSightingResponse> response) {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                   hotels = response.body().getBusinesses();
-                  mAdapter = new GalleryListAdapter(GalleryListActivity.this, hotels);
-                  mRecyclerView.setAdapter(mAdapter);
+                    hotels = response.body().getTravelGeoSightingResponseList();
+                    mAdapter = new GalleryListAdapter(GalleryListActivity.this, hotels);
+                    mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager = new GridLayoutManager(GalleryListActivity.this, 2);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
@@ -69,7 +68,7 @@ public class GalleryListActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<TravelBusinessesSearchResponse> call, Throwable t) {
+            public void onFailure(Call<TravelGeoSightingResponse> call, Throwable t) {
                 Log.e("Error Message", "onFailure: ", t);
                 hideProgressBar();
                 showFailureMessage();

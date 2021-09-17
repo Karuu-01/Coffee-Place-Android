@@ -8,11 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.coffeeplace.R;
-import com.moringaschool.coffeeplace.models.Business;
+import com.moringaschool.coffeeplace.models.TravelGeoSightingResponse;
 import com.moringaschool.coffeeplace.ui.GalleryDetailActivity;
 import com.squareup.picasso.Picasso;
 
@@ -24,16 +23,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.GalleryViewHolder> {
-    private List<Business> mHotels;
+    private List<TravelGeoSightingResponse> mHotels;
     private Context mContext;
 
-    public GalleryListAdapter(Context context, List<Business> hotels) {
+    public GalleryListAdapter(Context context, List<TravelGeoSightingResponse> hotels) {
         mContext = context;
         mHotels = hotels;
     }
 
     public GalleryListAdapter.GalleryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.sightings_list_item, parent, false);
         GalleryViewHolder viewHolder = new  GalleryViewHolder(view);
         return viewHolder;
     }
@@ -55,7 +54,7 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
         ImageView mHotelImageView;
         @BindView(R.id.hotelNameTextView)
         TextView mNameTextView;
-        @BindView(R.id.categoryTextView) TextView mCategoryTextView;
+//        @BindView(R.id.categoryTextView) TextView mCategoryTextView;
         @BindView(R.id.ratingTextView) TextView mRatingTextView;
 
         private Context mContext;
@@ -67,11 +66,11 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
             itemView.setOnClickListener(this);
         }
 
-        public void bindHotel(Business hotel) {
+        public void bindHotel(TravelGeoSightingResponse hotel) {
             mNameTextView.setText(hotel.getName());
-            mCategoryTextView.setText(hotel.getCategories().get(0).getTitle());
-            mRatingTextView.setText("Rating: " + hotel.getRating() + "/5");
-            Picasso.get().load(hotel.getImageUrl()).into(mHotelImageView);
+//            mCategoryTextView.setText(hotel.getHotelId());
+//            mRatingTextView.setText("Rating: " + hotel.getStarRating() + "/5");
+//            Picasso.get().load(hotel.getImages().indexOf(0)).into(mHotelImageView);
         }
 
         @Override
@@ -79,7 +78,7 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, GalleryDetailActivity.class);
             intent.putExtra("position", itemPosition);
-            intent.putExtra("hotels", Parcels.wrap(mHotels));
+            intent.putExtra("destination", Parcels.wrap(mHotels));
             mContext.startActivity(intent);
         }
     }
