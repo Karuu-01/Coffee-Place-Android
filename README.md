@@ -4,7 +4,7 @@
 ## Project Description
 - An app that gives users headlines of the top news depending on the category
 - Categories include:Business, Health, Sports, Technology, Science, Entertainment
-- Click on [Karuu](https://github.com/Karuu-01) to find the link to my Github Site.
+- Click on [Karuu](https://github.com/Karuu-01) to find the link to my Github Site
 ![picture](https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80)
 
 ## Author
