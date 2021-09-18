@@ -9,15 +9,23 @@
         <entry key="app/src/main/res/layout/activity_gallery_detail.xml" value="0.14" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_places.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_web_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/album_card.xml" value="0.33" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dashboard.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/entertainment_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_gallery_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/gallery_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/gallery_listview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/header.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/health_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/science_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/sightings_list_item.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/sports_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/technology_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.1" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.2" />
         <entry key="app/src/main/res/menu/menu_album.xml" value="0.10364583333333334" />

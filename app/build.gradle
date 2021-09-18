@@ -23,8 +23,7 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'String', 'TRAVEL_API_KEY', TravelSearchApiKey
-        it.buildConfigField 'String', 'KEY', Key
+        it.buildConfigField 'String', 'TRAVEL_API_KEY', NewsSearchApi
     }
 
     compileOptions {
