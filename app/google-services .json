@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "801936204501",
+    "project_id": "newsapp-e90df",
+    "storage_bucket": "newsapp-e90df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801936204501:android:b22038207910444bf7b85c",
+        "android_client_info": {
+          "package_name": "com.moringaschool.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801936204501-1ictvkn94nvmp4c26fp5j7c8jurrlmn9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.newsapp",
+            "certificate_hash": "01aac4a992a2f6e00bdeda006cbce77d61b1cf7c"
+          }
+        },
+        {
+          "client_id": "801936204501-f42ofrn9ns50oa6g76nkq9b323gf3vac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAia4jp0-TDYWIXhVAJlIMK9GduePyj-3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801936204501-f42ofrn9ns50oa6g76nkq9b323gf3vac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
