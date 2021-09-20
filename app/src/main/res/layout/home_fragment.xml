@@ -37,4 +37,12 @@
         android:layout_margin="16dp"
         android:visibility="gone" />
 
+    <Button
+        android:id="@+id/fragButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="SAVE HEADLINES OF CATEGORY"
+        android:fontFamily="monospace" />
+
 </RelativeLayout>

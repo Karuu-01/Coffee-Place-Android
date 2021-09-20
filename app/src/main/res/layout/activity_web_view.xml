@@ -35,7 +35,14 @@
         android:layout_height="match_parent"
         android:id="@+id/webview"
         android:layout_below="@+id/toolbar">
-
     </WebView>
+
+    <Button
+        android:id="@+id/webButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/webview"
+        android:text="ADD HEADLINE"
+        android:textSize="20sp"/>
 
 </RelativeLayout>
