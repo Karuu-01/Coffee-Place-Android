@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
     String country = "us";
     private RecyclerView recyclerViewHome;
     private String category = "business";
-    DatabaseReference databaseReference;
+
 
 
     @Nullable
@@ -52,26 +52,8 @@ public class HomeFragment extends Fragment {
         recyclerViewHome.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new Adapter(getContext(), articleNewsArrayList);
         recyclerViewHome.setAdapter(adapter);
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference("News");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    ArticleNews articleNews = dataSnapshot.getValue(ArticleNews.class);
-                    articleNewsArrayList.add(articleNews);
 
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         findNews();
 

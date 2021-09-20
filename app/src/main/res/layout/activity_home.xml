@@ -37,6 +37,16 @@
         android:layout_height="match_parent"
         android:src="@drawable/login" />
 
+    <EditText
+        android:id="@+id/newsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonStart"
+        android:background="@color/colorDivider"
+        android:gravity="center"
+        android:hint="Enter Category Of News"
+        android:paddingTop="8dp" />
+
 
     <Button
         android:id="@+id/buttonStart"
