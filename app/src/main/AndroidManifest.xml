@@ -17,16 +17,16 @@
             android:name=".ui.HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.LoginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.CreateAccountActivity"
+            android:name=".ui.MainActivity"
             android:exported="true" />
         <activity
             android:name=".webView"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.CreateAccountActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
