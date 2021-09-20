@@ -25,6 +25,9 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.newsapp.Constants;
 import com.moringaschool.newsapp.R;
 import com.moringaschool.newsapp.adapters.PagerAdapter;
 import com.moringaschool.newsapp.ui.CreateAccountActivity;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar mToolbar;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mSearchedNewsReference;
 
 
 
@@ -46,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //database firebase
+        mSearchedNewsReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_SEARCHED_NEWS);
+
 
 
         //user info
