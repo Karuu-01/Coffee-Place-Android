@@ -31,6 +31,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.createUserButton) Button mCreateUserButton;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
@@ -71,13 +72,16 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     }
 
     private void createNewUser() {
+        final String name = mNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
+        mName = mNameEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
+        boolean validName = isValidName(name);
         boolean validEmail = isValidEmail(email);
         boolean validPassword = isValidPassword(password, confirmPassword);
-        if (!validEmail || !validPassword) return;
+        if (!validEmail || !validName || !validPassword) return;
 
         showProgressBar();
 
@@ -125,6 +129,14 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             return false;
         }
         return isGoodEmail;
+    }
+
+    private boolean isValidName(String name){
+        if(name.equals("")){
+            mNameEditText.setError("Please enter your name");
+            return false;
+        }
+        return true;
     }
 
 

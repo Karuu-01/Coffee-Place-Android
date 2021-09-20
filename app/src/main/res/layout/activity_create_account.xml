@@ -34,6 +34,19 @@
     android:layout_centerVertical="true"
     android:id="@+id/linearlayout">
 
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:hint="Name"
+        android:nextFocusDown="@+id/passwordEditText"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/colorDivider"
+        android:textSize="20sp" />
+
 
     <EditText
         android:id="@+id/emailEditText"

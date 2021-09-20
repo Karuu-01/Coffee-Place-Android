@@ -8,6 +8,9 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +24,7 @@ import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.moringaschool.newsapp.R;
 import com.moringaschool.newsapp.adapters.PagerAdapter;
 import com.moringaschool.newsapp.ui.CreateAccountActivity;
@@ -32,31 +36,31 @@ public class MainActivity extends AppCompatActivity {
     TabItem mHome,mSports,mScience,mTechnology,mEntertainment,mHealth;
     PagerAdapter pagerAdapter;
     Toolbar mToolbar;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
-//    private EditText  mEmail, mPass;
-//    private TextView mTextView;
-//    private Button SignUp;
-//    private FirebaseAuth mAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        //User authentication
-//        mEmail = findViewById(R.id.email);
-//        mPass = findViewById(R.id.password);
-//        mTextView = findViewById(R.id.text);
-//        SignUp = findViewById(R.id.button);
 
-//                mAuth = FirebaseAuth.getInstance();
-//
-//        SignUp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                createUser();
-//            }
-//        });
+        //user info
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener(){
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth){
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                } else {
+
+                }
+            }
+        };
 
 
         mToolbar = findViewById(R.id.toolbar);
@@ -102,34 +106,44 @@ public class MainActivity extends AppCompatActivity {
         });
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
-//
-//    private void createUser() {
-//        String email = mEmail.getText().toString();
-//        String pass = mPass.getText().toString();
-//
-//        if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-//            if (!pass.isEmpty()) {
-//mAuth.createUserWithEmailAndPassword(email, pass)
-//        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                Toast.makeText(MainActivity.this, "Succesfully Registered!!", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//                finish();
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//    @Override
-//    public void onFailure(@NonNull Exception e) {
-//        Toast.makeText(MainActivity.this, "Registration Error!", Toast.LENGTH_LONG).show();
-//    }
-//});
-//            }else{
-//                mPass.setError("Empty fields are  not allowed");
-//            }
-//        }else if (email.isEmpty()){
-//            mEmail.setError("Empty Fields are not allowed");
-//        }else {
-//            mEmail.setError("Please enter correct email");
-//        }
-//    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == R.id.action_logout){
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
 }
