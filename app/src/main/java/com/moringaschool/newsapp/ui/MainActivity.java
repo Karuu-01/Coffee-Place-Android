@@ -25,19 +25,30 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.newsapp.Constants;
 import com.moringaschool.newsapp.R;
 import com.moringaschool.newsapp.adapters.PagerAdapter;
+import com.moringaschool.newsapp.models.ArticleNews;
 import com.moringaschool.newsapp.ui.CreateAccountActivity;
 import com.moringaschool.newsapp.ui.LoginActivity;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
+
+    private EditText mName, mEmail;
     TabLayout tabLayout;
     TabItem mHome,mSports,mScience,mTechnology,mEntertainment,mHealth;
     PagerAdapter pagerAdapter;
     Toolbar mToolbar;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    public List<ArticleNews> news;
+
+
 
 
 
@@ -46,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        String news = intent.getStringExtra("business");
+
+
 
 
         //user info

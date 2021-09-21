@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.moringaschool.newsapp.Constants;
 import com.moringaschool.newsapp.R;
 import com.moringaschool.newsapp.adapters.Adapter;
 import com.moringaschool.newsapp.models.ArticleNews;
@@ -20,12 +28,15 @@ import com.moringaschool.newsapp.network.NewsClientApi;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
+
 
     String api = "e4ec187190a44ade83b0e610b5e9aa95";
     ArrayList<ArticleNews> articleNewsArrayList;
@@ -33,12 +44,16 @@ public class HomeFragment extends Fragment {
     String country = "us";
     private RecyclerView recyclerViewHome;
     private String category = "business";
+    @BindView(R.id.fragButton)
+    Button mFragButton;
+
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, null);
+        ButterKnife.bind(this, view);
 
         recyclerViewHome = view.findViewById(R.id.recyclerViewHome);
         articleNewsArrayList = new ArrayList<>();
@@ -46,10 +61,13 @@ public class HomeFragment extends Fragment {
         adapter = new Adapter(getContext(), articleNewsArrayList);
         recyclerViewHome.setAdapter(adapter);
 
+
+
         findNews();
 
         return view;
     }
+
 
     private void findNews() {
         NewsClientApi.getNewsSearchApi().getCategoryNews(country,category ,100, api)
@@ -67,5 +85,17 @@ public class HomeFragment extends Fragment {
 
                     }
                 });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mFragButton) {
+            DatabaseReference newsRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_NEWS);
+            newsRef.push().setValue(recyclerViewHome);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

@@ -5,9 +5,11 @@
       <map>
         <entry key="app/src/main/res/drawable/stroke.xml" value="0.20615384615384616" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_web_view.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.19025641025641027" />
+        <entry key="app/src/main/res/layout/technology_fragment.xml" value="0.19025641025641027" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/menu/menu_search.xml" value="0.1" />
       </map>
