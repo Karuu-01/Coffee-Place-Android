@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             DatabaseReference newsRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_NEWS);
-            newsRef.push().setValue(recyclerViewHome);
+            newsRef.push().setValue(articleNewsArrayList);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 
