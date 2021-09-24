@@ -26,6 +26,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
    private ValueEventListener mSearchedNewsListener;
 
     @BindView(R.id.buttonStart) Button mButtonStart;
+    @BindView(R.id.savedNewsButton) Button mSavedNewsButton;
     @BindView(R.id.newsEditText)
     EditText mNewsEditText;
 
@@ -37,6 +38,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
         ButterKnife.bind(this);
 
         mButtonStart.setOnClickListener(this);
+        mSavedNewsButton.setOnClickListener(this);
 
         mSearchedNewsReference = FirebaseDatabase
                 .getInstance()
@@ -74,6 +76,10 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
             intent.putExtra("news", news);
             startActivity(intent);
             finish();
+        }
+        if (view == mSavedNewsButton) {
+            Intent intent = new Intent(HomeActivity.this, SavedNews.class);
+            startActivity(intent);
         }
     }
 

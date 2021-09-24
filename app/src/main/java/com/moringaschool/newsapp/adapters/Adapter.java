@@ -17,6 +17,8 @@ import com.moringaschool.newsapp.R;
 import com.moringaschool.newsapp.models.ArticleNews;
 import com.moringaschool.newsapp.webView;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
@@ -61,15 +63,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return articleNewsArrayList.size();
     }
 
-       public class ViewHolder extends RecyclerView.ViewHolder{
+       public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 
         TextView mheading, mcontent, mauthor, mtime;
         CardView cardView;
         ImageView imageView;
+        private Context mContext;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
             mheading = itemView.findViewById(R.id.headingmain);
             mcontent = itemView.findViewById(R.id.content);
             mauthor = itemView.findViewById(R.id.author);
@@ -78,6 +83,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             cardView = itemView.findViewById(R.id.cardview);
 
         }
-    }
+
+           @Override
+           public void onClick(View view) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, DashActivity.class);
+            intent.putExtra("position" , itemPosition);
+            intent.putExtra("news", Parcels.wrap(articleNewsArrayList));
+            mContext.startActivity(intent);
+
+           }
+       }
 
 }

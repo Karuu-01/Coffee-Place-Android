@@ -36,7 +36,7 @@ import com.moringaschool.newsapp.ui.LoginActivity;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
 
     private EditText mName, mEmail;
