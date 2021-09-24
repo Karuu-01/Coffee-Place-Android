@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,16 +47,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     String country = "us";
     private RecyclerView recyclerViewHome;
     private String category = "business";
-    @BindView(R.id.fragButton)
-    Button mFragButton;
+    @BindView(R.id.fragButton) Button mFragButton;
+
+
+    private ArticleNews mNews;
 
 
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, null);
         ButterKnife.bind(this, view);
+        mFragButton.setOnClickListener(this);
+
         mFragButton.setOnClickListener(this);
 
         recyclerViewHome = view.findViewById(R.id.recyclerViewHome);
@@ -61,6 +68,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         recyclerViewHome.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new Adapter(getContext(), articleNewsArrayList);
         recyclerViewHome.setAdapter(adapter);
+
+
 
 
 
@@ -95,7 +104,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_NEWS);
             newsRef.push().setValue(articleNewsArrayList);
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+
+
+            Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
         }
 
     }

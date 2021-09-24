@@ -47,6 +47,7 @@ public class EntertainmentFragment extends Fragment implements View.OnClickListe
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.entertainment_fragment, null);
         ButterKnife.bind(this, view);
+
         mFragButton.setOnClickListener(this);
 
 
@@ -86,7 +87,10 @@ public class EntertainmentFragment extends Fragment implements View.OnClickListe
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_NEWS);
             newsRef.push().setValue(articleNewsArrayList);
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+
+
+
+            Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
         }
 
     }
