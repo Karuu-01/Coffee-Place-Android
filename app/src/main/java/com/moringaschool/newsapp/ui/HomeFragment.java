@@ -47,7 +47,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     String country = "us";
     private RecyclerView recyclerViewHome;
     private String category = "business";
-    @BindView(R.id.savedNewsButton) Button mSavedNewsButton;
+    @BindView(R.id.fragButton) Button mFragButton;
+
 
     private ArticleNews mNews;
 
@@ -59,7 +60,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.home_fragment, null);
         ButterKnife.bind(this, view);
 
-        mSavedNewsButton.setOnClickListener(this);
+        mFragButton.setOnClickListener(this);
 
         recyclerViewHome = view.findViewById(R.id.recyclerViewHome);
         articleNewsArrayList = new ArrayList<>();
@@ -97,19 +98,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if (view == mSavedNewsButton) {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            String uid = user.getUid();
+        if (view == mFragButton) {
             DatabaseReference newsRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_NEWS)
-                    .child(uid);
-//            DatabaseReference pushRef = newsRef.push();
-//            String pushId =  pushRef.getKey();
-//            mNews.setPushId(pushId);
-//            pushRef.setValue(mNews);
+                    .getReference(Constants.FIREBASE_CHILD_NEWS);
+            newsRef.push().setValue(articleNewsArrayList);
 
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
         }
 
     }

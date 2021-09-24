@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.newsapp.Constants;
 import com.moringaschool.newsapp.R;
 import com.moringaschool.newsapp.adapters.Adapter;
 import com.moringaschool.newsapp.models.ArticleNews;
@@ -19,11 +24,13 @@ import com.moringaschool.newsapp.network.NewsClientApi;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TechnologyFragment extends Fragment {
+public class TechnologyFragment extends Fragment implements View.OnClickListener{
 
 
     String api = "e4ec187190a44ade83b0e610b5e9aa95";
@@ -32,12 +39,17 @@ public class TechnologyFragment extends Fragment {
     String country = "us";
     private RecyclerView recyclerViewTechnology;
     private String category = "Technology";
+    @BindView(R.id.fragButton)
+    Button mFragButton;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.technology_fragment, null);
+        ButterKnife.bind(this, view);
+
+        mFragButton.setOnClickListener(this);
 
         recyclerViewTechnology = view.findViewById(R.id.recyclerViewTechnology);
         articleNewsArrayList = new ArrayList<>();
@@ -66,5 +78,18 @@ public class TechnologyFragment extends Fragment {
 
                     }
                 });
+    }
+    @Override
+    public void onClick(View view) {
+        if (view == mFragButton) {
+            DatabaseReference newsRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_NEWS);
+            newsRef.push().setValue(articleNewsArrayList);
+
+
+            Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

@@ -39,19 +39,6 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:padding="5dp"
-                    android:maxLines="6"
-                    android:id="@+id/content"
-                    android:textSize="15sp"
-                    android:text="This are the headlines of the day">
-
-                </TextView>
-
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -86,9 +73,29 @@
                 android:text="Time Of Publish"
                 android:textStyle="bold"
                 android:textSize="12sp" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="6"
+                android:padding="5dp"
+                android:text="This are the headlines of the day"
+                android:textSize="15sp">
 
             </TextView>
         </LinearLayout>
+<!--        <Button-->
+<!--            android:layout_width="120dp"-->
+<!--            android:id="@+id/savedNewsButton"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:text="bookmark"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="200dp"-->
+<!--            android:layout_marginLeft="140dp" />-->
 
     </androidx.cardview.widget.CardView>
 
