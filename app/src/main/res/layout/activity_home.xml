@@ -41,22 +41,46 @@
         android:id="@+id/newsEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonStart"
+        android:layout_above="@+id/findNewsButton"
         android:background="@color/colorDivider"
         android:gravity="center"
         android:hint="Enter Category Of News"
         android:paddingTop="8dp" />
 
 
+<!--    <Button-->
+<!--        android:id="@+id/buttonStart"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="4dp"-->
+<!--        android:layout_alignBottom="@+id/img"-->
+<!--        android:paddingBottom="6dp"-->
+<!--        android:text="Get Started"-->
+<!--        android:textColor="@color/black" />-->
     <Button
-        android:id="@+id/buttonStart"
+        android:id="@+id/findNewsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="4dp"
-        android:layout_alignBottom="@+id/img"
-        android:paddingBottom="6dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:text="Get Started"
-        android:textColor="@color/black" />
+        android:visibility="visible"
+        android:layout_above="@+id/savedNewButton"
+        android:textColor="@color/colorTextIcons"
+        android:background="@color/colorAccent"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="My Saved Restaurants"
+        android:id="@+id/savedNewButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>

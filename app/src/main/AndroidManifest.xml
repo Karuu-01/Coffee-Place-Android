@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsApp">
         <activity
+            android:name=".ui.NewsDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.SavedNewsActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.HomeActivity"
             android:exported="true" />
         <activity
