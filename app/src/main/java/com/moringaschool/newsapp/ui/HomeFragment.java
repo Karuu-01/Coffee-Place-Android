@@ -54,6 +54,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, null);
         ButterKnife.bind(this, view);
+        mFragButton.setOnClickListener(this);
 
         recyclerViewHome = view.findViewById(R.id.recyclerViewHome);
         articleNewsArrayList = new ArrayList<>();
@@ -93,7 +94,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             DatabaseReference newsRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_NEWS);
-            newsRef.push().setValue(recyclerViewHome);
+            newsRef.push().setValue(articleNewsArrayList);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 
