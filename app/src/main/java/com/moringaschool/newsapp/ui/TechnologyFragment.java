@@ -48,7 +48,6 @@ public class TechnologyFragment extends Fragment implements View.OnClickListener
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.technology_fragment, null);
         ButterKnife.bind(this, view);
-
         mFragButton.setOnClickListener(this);
 
         recyclerViewTechnology = view.findViewById(R.id.recyclerViewTechnology);
@@ -89,6 +88,7 @@ public class TechnologyFragment extends Fragment implements View.OnClickListener
 
 
             Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+
         }
 
     }

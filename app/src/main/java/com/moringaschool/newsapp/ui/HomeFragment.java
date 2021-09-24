@@ -59,6 +59,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, null);
         ButterKnife.bind(this, view);
+        mFragButton.setOnClickListener(this);
 
         mFragButton.setOnClickListener(this);
 

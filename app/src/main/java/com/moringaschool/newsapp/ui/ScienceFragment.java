@@ -47,7 +47,6 @@ public class ScienceFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.science_fragment, null);
         ButterKnife.bind(this, view);
-
         mFragButton.setOnClickListener(this);
 
 
@@ -79,6 +78,7 @@ public class ScienceFragment extends Fragment implements View.OnClickListener{
                     }
                 });
     }
+  
     @Override
     public void onClick(View view) {
         if (view == mFragButton) {
@@ -89,6 +89,7 @@ public class ScienceFragment extends Fragment implements View.OnClickListener{
 
 
             Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+
         }
 
     }

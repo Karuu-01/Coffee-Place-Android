@@ -88,7 +88,9 @@ public class SportsFragment extends Fragment implements View.OnClickListener{
             newsRef.push().setValue(articleNewsArrayList);
 
 
+
             Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+
         }
 
     }

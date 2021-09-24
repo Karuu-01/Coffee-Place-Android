@@ -89,6 +89,7 @@ public class EntertainmentFragment extends Fragment implements View.OnClickListe
             newsRef.push().setValue(articleNewsArrayList);
 
 
+
             Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
         }
 
