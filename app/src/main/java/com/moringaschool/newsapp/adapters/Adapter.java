@@ -51,8 +51,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
            }
        });
 
+       //animation 1
        holder.cardView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
+        holder.mcontent.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+        holder.mheading.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
+
 
         holder.mtime.setText("Published At:-"+articleNewsArrayList.get(position).getPublishedAt());
         holder.mauthor.setText(articleNewsArrayList.get(position).getAuthor());

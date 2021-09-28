@@ -5,7 +5,7 @@
     <alpha
         android:fromAlpha="0.0"
         android:toAlpha="1.0"
-        android:durationc= "500" />
+        android:duration= "500" />
 
     <translate
         android:fromXDelta="-100%"
