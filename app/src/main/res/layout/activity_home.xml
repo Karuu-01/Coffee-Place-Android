@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.HomeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="#F8F5F5"
+        android:id="@+id/toolbar" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News Bot"
+                android:layout_centerInParent="true"
+                android:fontFamily="cursive"
+                android:textStyle="bold"
+                android:textSize="55sp"
+                android:textColor="#4C0E23" >
+
+            </TextView>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/login" />
+
+    <EditText
+        android:id="@+id/newsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/findNewsButton"
+        android:background="@color/colorDivider"
+        android:gravity="center"
+        android:hint="Enter Category Of News"
+        android:paddingTop="8dp" />
+
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonStart"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="4dp"-->
+<!--        android:layout_alignBottom="@+id/img"-->
+<!--        android:paddingBottom="6dp"-->
+<!--        android:text="Get Started"-->
+<!--        android:textColor="@color/black" />-->
+    <Button
+        android:id="@+id/findNewsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Get Started"
+        android:visibility="visible"
+        android:layout_above="@+id/savedNewButton"
+        android:textColor="@color/colorTextIcons"
+        android:background="@color/colorAccent"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="My Saved Restaurants"
+        android:id="@+id/savedNewButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

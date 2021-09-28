@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_logout"
+        android:title="Logout"
+        android:visible="true"
+        app:showAsAction="never" />
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:title="NAVIGATION">
+
+            <menu>
+                <item
+                    android:id="@+id/nav_home"
+                    android:title="Home"/>
+
+                <item
+                    android:id="@+id/nav_account"
+                    android:title="Account"/>
+
+                <item
+                    android:id="@+id/nav_favorites"
+                    android:title="Favorites"/>
+            </menu>
+
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:title="SYSTEM">
+
+            <menu>
+                <item
+                    android:id="@+id/nav_settings"
+                    android:title="Settings"/>
+
+                <item
+                    android:id="@+id/nav_help"
+                    android:title="Help"/>
+
+                <item
+                    android:id="@+id/nav_information"
+                    android:title="Information"/>
+            </menu>
+
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Logout"/>
+    </group>
+</menu>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CreateAccountActivity">
+
+    <ImageView
+        android:id="@+id/imgcreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:src="@drawable/log" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="cursive"
+        android:gravity="center_horizontal"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40sp" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:id="@+id/linearlayout">
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:hint="Name"
+        android:nextFocusDown="@+id/passwordEditText"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/colorDivider"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/stroke"
+        android:hint="Fill in your Email"
+        android:inputType="textEmailAddress"
+        android:nextFocusDown="@id/passwordEditText"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:nextFocusDown="@id/passwordEditText"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/stroke"
+        android:hint="Fill in your Password" />
+
+
+    <EditText
+        android:id="@+id/confirmPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:inputType="textPassword"
+        android:nextFocusDown="@id/passwordEditText"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/stroke"
+        android:hint="Confirm Password" />
+
+
+    <Button
+        android:id="@+id/createUserButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentBottom="true"
+        android:background="#789AB5"
+        android:text="Create Your Account" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/loginTextView"
+        android:text="Already Registered? Log In"
+        android:layout_below="@+id/password"
+        android:textColor="@color/album_title"
+        android:gravity="center"
+        android:textSize="20sp" />
+
+</LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/firebaseProgressBar"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/loadingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/firebaseProgressBar"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_margin="20dp"
+        android:visibility="gone" />
+</RelativeLayout>
