@@ -42,7 +42,7 @@
         android:id="@+id/newsEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonStart"
+        android:layout_above="@+id/findNewsButton"
         android:background="@color/colorDivider"
         android:gravity="center"
         android:hint="Enter Category Of News"
@@ -50,12 +50,7 @@
 
 
 <!--    <Button-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:paddingTop="4dp"-->
-<!--        android:paddingBottom="6dp"-->
-<!--        android:text="Get Started"-->
-<!--        android:textColor="@color/black" />-->
+
 
     <com.spark.submitbutton.SubmitButton
         android:id="@+id/buttonStart"
@@ -72,6 +67,19 @@
         app:sub_btn_line_color="#4CAF50"
         app:sub_btn_ripple_color="#4CAF50"
         app:sub_btn_tick_color="#4CAF50" />
+
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="My Saved Restaurants"
+        android:id="@+id/savedNewButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>

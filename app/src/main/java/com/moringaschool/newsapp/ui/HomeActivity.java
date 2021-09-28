@@ -30,6 +30,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
     SubmitButton mButtonStart;
     @BindView(R.id.newsEditText)
     EditText mNewsEditText;
+    @BindView(R.id.savedNewButton) Button mSavedNewButton;
 
 
     @Override
@@ -38,7 +39,8 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
-        mButtonStart.setOnClickListener(this);
+        mfindNewsButton.setOnClickListener(this);
+        mSavedNewButton.setOnClickListener(this);
 
         mSearchedNewsReference = FirebaseDatabase
                 .getInstance()
@@ -69,7 +71,7 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
 
     @Override
     public void onClick(View view) {
-        if (view == mButtonStart) {
+        if (view == mfindNewsButton) {
             String news = mNewsEditText.getText().toString();
             saveNewsToFirebase(news);
             Intent intent = new Intent(HomeActivity.this, MainActivity.class);
@@ -88,6 +90,11 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
                     }
                 }
             });
+        }
+
+        if (view == mSavedNewButton) {
+            Intent intent = new Intent(HomeActivity.this, SavedNewsActivity.class);
+            startActivity(intent);
         }
     }
 
