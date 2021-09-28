@@ -7,10 +7,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
+import android.view.DragEvent;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,8 +40,14 @@ import com.moringaschool.newsapp.ui.LoginActivity;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements
+View.OnTouchListener,
+        GestureDetector.OnGestureListener,
+View.OnDragListener,
+GestureDetector.OnDoubleTapListener{
 
+private static final String TAG = "MainActivity";
+private GestureDetector mGestureDetector;
 
     private EditText mName, mEmail;
     TabLayout tabLayout;
@@ -161,4 +171,116 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+        Log.d(TAG, "onSingleTapConfirmed: called");
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        Log.d(TAG, " onDoubleTap: called");
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
+        Log.d(TAG, "onDoubleTapEvent: called");
+        return false;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        Log.d(TAG, "onDown:  called");
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+        Log.d(TAG, "onShowPress: called");
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        Log.d(TAG, "onSingleTapUp: called");
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        Log.d(TAG, "onScroll: called");
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+        Log.d(TAG, "onLongPress: called");
+        View.DragShadowBuilder builder = new View.DragShadowBuilder(tabLayout);
+        tabLayout.startDrag(null,
+                builder,
+                null,
+                0);
+        builder.getView().setOnDragListener(this);
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        Log.d(TAG, "onFling: called");
+        return false;
+    }
+
+    @Override
+    public boolean onDrag(View view, DragEvent dragEvent) {
+        switch(dragEvent.getAction()) {
+
+            case DragEvent.ACTION_DRAG_STARTED:
+                Log.d(TAG, "onDrag: drag started.");
+
+                return true;
+
+            case DragEvent.ACTION_DRAG_ENTERED:
+                Log.d(TAG, "onDrag: drag entered.");
+                return true;
+
+            case DragEvent.ACTION_DRAG_LOCATION:
+                Log.d(TAG, "onDrag: current point: ( " + dragEvent.getX() + " , " + dragEvent.getY() + " )"  );
+
+                return true;
+
+            case DragEvent.ACTION_DRAG_EXITED:
+                Log.d(TAG, "onDrag: exited.");
+                return true;
+
+            case DragEvent.ACTION_DROP:
+
+                Log.d(TAG, "onDrag: dropped.");
+
+                return true;
+
+            case DragEvent.ACTION_DRAG_ENDED:
+                Log.d(TAG, "onDrag: ended.");
+
+
+                return true;
+
+            // An unknown action type was received.
+            default:
+                Log.e(TAG,"Unknown action type received by OnStartDragListener.");
+                break;
+
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (view == tabLayout){
+            mGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+        return true;
+    }
 }

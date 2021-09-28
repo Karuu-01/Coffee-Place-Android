@@ -41,7 +41,7 @@
         android:id="@+id/webButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/webview"
+       android:layout_alignParentBottom="true"
         android:text="ADD HEADLINE"
         android:textSize="20sp"/>
 

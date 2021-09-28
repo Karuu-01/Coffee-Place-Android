@@ -35,7 +35,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class HomeFragment extends Fragment implements View.OnClickListener{
+public class HomeFragment extends Fragment implements
+        View.OnClickListener {
 
 
     String api = "e4ec187190a44ade83b0e610b5e9aa95";
@@ -58,6 +59,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         recyclerViewHome = view.findViewById(R.id.recyclerViewHome);
         articleNewsArrayList = new ArrayList<>();
+//        recyclerViewHome.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewHome.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new Adapter(getContext(), articleNewsArrayList);
         recyclerViewHome.setAdapter(adapter);
