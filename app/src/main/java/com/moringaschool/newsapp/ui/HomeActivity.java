@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.newsapp.Constants;
 import com.moringaschool.newsapp.R;
+import com.spark.submitbutton.SubmitButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +26,8 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
    private DatabaseReference mSearchedNewsReference;
    private ValueEventListener mSearchedNewsListener;
 
-    @BindView(R.id.findNewsButton) Button mfindNewsButton;
+    @BindView(R.id.buttonStart)
+    SubmitButton mButtonStart;
     @BindView(R.id.newsEditText)
     EditText mNewsEditText;
     @BindView(R.id.savedNewButton) Button mSavedNewButton;
@@ -76,6 +78,18 @@ public class HomeActivity extends AppCompatActivity implements  View.OnClickList
             intent.putExtra("news", news);
             startActivity(intent);
             finish();
+
+//animation 2
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(3500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
 
         if (view == mSavedNewButton) {
