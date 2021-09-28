@@ -1,7 +1,7 @@
 package com.moringaschool.newsapp.models;
 
 public class ArticleNews {
-    private String author,title,description,url,urlToImage,publishedAt;
+    private String author,title,description,url,urlToImage,publishedAt,pushId;
 
     public ArticleNews(String author, String title, String description, String url, String urlToImage, String publishedAt) {
         this.author = author;
@@ -58,5 +58,13 @@ public class ArticleNews {
 
     public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }

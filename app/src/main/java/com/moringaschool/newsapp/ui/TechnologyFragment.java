@@ -78,7 +78,6 @@ public class TechnologyFragment extends Fragment implements View.OnClickListener
                     }
                 });
     }
-
     @Override
     public void onClick(View view) {
         if (view == mFragButton) {
@@ -86,7 +85,10 @@ public class TechnologyFragment extends Fragment implements View.OnClickListener
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_NEWS);
             newsRef.push().setValue(articleNewsArrayList);
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+
+
+            Toast.makeText(getContext(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+
         }
 
     }
