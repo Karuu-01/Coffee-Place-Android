@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.newsapp.models.ArticleNews;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -29,7 +31,7 @@ public class webView extends AppCompatActivity implements View.OnClickListener {
     WebView webView;
     @BindView(R.id.webButton)
     Button mWebButton;
-    private ArticleNews news;
+    ArrayList<ArticleNews> articleNewsArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,8 @@ public class webView extends AppCompatActivity implements View.OnClickListener {
             DatabaseReference newsRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_NEWS);
-            newsRef.push().setValue(news);
+            newsRef.push().setValue(articleNewsArrayList);
+//            Toast.makeText(webView.this, "Saved", Toast.LENGTH_SHORT).show();
         }
 
     }
